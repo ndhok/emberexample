@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-responsive.css">
+</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	      <div class="container">
+				<script type="text/x-handlebars" id="main-content">
+					<div class="jumbotron">
+				    	<div class="container container-fluid form-actions">
+							<label>Default text</label>
+							<span>{{#linkTo 'showusers'}} Show Users {{/linkTo}}</span><br/>
+							<span>{{#linkTo 'adduser'}} Add User {{/linkTo}}</span>
+							{{outlet}}
+						</div>
+					</div>
+				</script>
+
+				<script type="text/x-handlebars" id="showusers">
+					<div class="jumbotron">
+				    	<div class="container container-fluid">
+							<ul class="form-actions">
+								{{#each value in model}}
+									<li>{{value}}</li>
+								{{/each}}
+							</ul>
+							<span>{{#linkTo 'main-content'}}Back To Home{{/linkTo}}</span>
+						</div>
+					</div>
+				</script>
+
+				<script type="text/x-handlebars" id="adduser">
+					<div class="jumbotron">
+				    	<div class="container container-fluid form-actions">
+						    <input type="text" name="username" placeholder="Username"><br/>
+						    <input type="text" name="registration_id" placeholder="Registration Id"><br/>
+						    <input type="submit" name="saveData">
+						    <span>{{#linkTo 'main-content'}}Back To Home{{/linkTo}}</span>
+						</div>
+					</div>
+			  	</script>
+
+				<script src="js/libs/jquery-1.9.1.min.js"></script>
+				<script src="js/libs/bootstrap.min.js"></script>
+				<script src="js/libs/handlebars.js"></script>
+				<script src="js/libs/ember-1.0.0-rc.1.js"></script>
+				<script src="js/libs/ember-data.js"></script>
+				<script src="js/app_.js"></script>
+			</div>
+		</div>
+	</body>
+</html>
